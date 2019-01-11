@@ -25,10 +25,10 @@ namespace ToDoList.Migrations
 
         void AddUsers (ToDoList.Models.ApplicationDbContext context)
         {
-            var user = new Models.ApplicationUser { UserName = "user@email.com" };
+            var user = new Models.ApplicationUser { UserName = "dpkbhatta2051@gmail.com" };
             var um = new UserManager<ApplicationUser>(
                 new UserStore<ApplicationUser>(context));
-            um.Create(user, "password");
+            um.Create(user, "123456");
         }
     }
 }
