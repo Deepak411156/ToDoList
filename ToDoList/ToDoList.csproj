@@ -277,6 +277,7 @@
     <Content Include="Views\ToDoes\Details.cshtml" />
     <Content Include="Views\ToDoes\Edit.cshtml" />
     <Content Include="Views\ToDoes\Index.cshtml" />
+    <Content Include="Views\ToDoes\_ToDoTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
