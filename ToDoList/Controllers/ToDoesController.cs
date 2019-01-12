@@ -89,7 +89,6 @@ namespace ToDoList.Controllers
                 toDo.IsDone = false;
                 db.ToDos.Add(toDo);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
             return PartialView("_ToDoTable",GetMyToDoes());
