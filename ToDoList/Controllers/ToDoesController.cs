@@ -18,22 +18,20 @@ namespace ToDoList.Controllers
         // GET: ToDoes
         public ActionResult Index()
         {
-            string currentUserId = User.Identity.GetUserId();
-            ApplicationUser currentUser = db.Users.FirstOrDefault
-                (x=>x.Id==currentUserId);
-
-            return View(db.ToDos.ToList().Where(x=>x.User==currentUser));
+            return View();
         }
 
-        public ActionResult BuildToDoTable()
+        private IEnumerable<ToDo>GetMyToDoes()
         {
             string currentUserId = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.FirstOrDefault
                 (x => x.Id == currentUserId);
+            return db.ToDos.ToList().Where(x=>x.User==currentUser);
+        }
 
-            return PartialView("_ToDoTable",
-                db.ToDos.ToList().Where(x => x.User == currentUser));
-
+        public ActionResult BuildToDoTable()
+        {
+            return PartialView("_ToDoTable", GetMyToDoes());
         }
 
         // GET: ToDoes/Details/5
