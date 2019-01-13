@@ -15,10 +15,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Description, new { id = item.Id, @class="ActionCheck"})
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsDone)
+                @Html.CheckBoxFor(modelItem => item.IsDone)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
