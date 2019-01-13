@@ -127,6 +127,19 @@ namespace ToDoList.Controllers
             return View(toDo);
         }
 
+        [HttpPost]
+        public ActionResult AJAXEdit([Bind(Include = "Id,Description,IsDone")] ToDo toDo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(toDo).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(toDo);
+        }
+
+
         // GET: ToDoes/Delete/5
         public ActionResult Delete(int? id)
         {
