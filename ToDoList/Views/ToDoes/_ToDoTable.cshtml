@@ -1,7 +1,19 @@
 ﻿@model IEnumerable<ToDoList.Models.ToDo>
 
+
+<div id="progressBarToDo">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width:@(Html.AttributeEncode(ViewBag.Percent))%">
+
+        </div>
+
+        <p>@(ViewBag.Percent)%</p>
+
+    </div>
+</div>
+
 <table class="table">
-    <tr>
+    @*<tr>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
@@ -9,7 +21,7 @@
             @Html.DisplayNameFor(model => model.IsDone)
         </th>
         <th></th>
-    </tr>
+    </tr>*@
 
     @foreach (var item in Model)
     {
