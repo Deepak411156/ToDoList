@@ -6,7 +6,7 @@
         $.ajax({
             url: '/ToDoes/AJAXEdit',
             data: {
-                id=id,
+                id: id,
                 value: value
             },
             type: 'POST',
