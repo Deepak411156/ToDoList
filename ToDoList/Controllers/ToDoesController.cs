@@ -136,15 +136,25 @@ namespace ToDoList.Controllers
         }
 
         [HttpPost]
-        public ActionResult AJAXEdit([Bind(Include = "Id,Description,IsDone")] ToDo toDo)
+        public ActionResult AJAXEdit(int? id, bool value)
         {
-            if (ModelState.IsValid)
+            if (id == null)
             {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ToDo toDo = db.ToDos.Find(id);
+            if (toDo == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                toDo.IsDone = value;
                 db.Entry(toDo).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return PartialView("_ToDoTable", GetMyToDoes());
+
             }
-            return View(toDo);
         }
 
 
